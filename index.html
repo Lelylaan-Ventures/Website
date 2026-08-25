@@ -64,8 +64,42 @@
         }
 
         /* HEADER */
+        html { scroll-behavior: smooth; }
+        section[id] { scroll-margin-top: 5rem; }
+
         header {
             border-bottom: 2px solid var(--ink);
+            position: sticky;
+            top: 0;
+            background: var(--bg);
+            z-index: 10;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 1.75rem;
+        }
+
+        .header-nav a {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.78rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--ink);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            padding-bottom: 2px;
+        }
+
+        .header-nav a:hover {
+            color: var(--gold);
+            border-bottom-color: var(--gold);
         }
 
         .header-inner {
@@ -298,6 +332,11 @@
 
         /* RESPONSIVE */
         @media (max-width: 768px) {
+            .header-badge { display: none; }
+            .header-nav { gap: 1.1rem; }
+            .header-nav a { font-size: 0.72rem; }
+            section[id] { scroll-margin-top: 8.5rem; }
+
             .hero { grid-template-columns: 1fr; }
 
             .hero-panel {
@@ -339,12 +378,19 @@
     <header>
         <div class="wrap header-inner">
             <span class="brand-name">Lelylaan Ventures</span>
-            <span class="header-badge mono">CRO 823960 / IE</span>
+            <div class="header-right">
+                <nav class="header-nav" aria-label="Sections">
+                    <a href="#overview">Overview</a>
+                    <a href="#approach">Approach</a>
+                    <a href="#corporate">Corporate</a>
+                </nav>
+                <span class="header-badge mono">CRO 823960 / IE</span>
+            </div>
         </div>
     </header>
 
     <main>
-        <section class="hero">
+        <section class="hero" id="overview">
             <div class="hero-copy">
                 <div class="hero-eyebrow mono">[ PRIVATE HOLDING COMPANY ]</div>
                 <h1>A private holding company <em>building and backing</em> AI&#8209;native ventures.</h1>
@@ -372,7 +418,7 @@
             </div>
         </section>
 
-        <section class="approach">
+        <section class="approach" id="approach">
             <div class="wrap">
                 <div class="eyebrow-label mono">APPROACH</div>
                 <div class="approach-list">
@@ -392,7 +438,7 @@
             </div>
         </section>
 
-        <section class="entity-box">
+        <section class="entity-box" id="corporate">
             <div class="entity-bar">
                 <span class="mono">REGISTERED ENTITY</span>
                 <span class="mono faint">COMPANIES ACT 2014</span>
