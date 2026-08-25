@@ -12,35 +12,37 @@
     <!-- FAVICON: inline SVG data URI of the gold interlocking-L mark on navy -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%231B2A41'/%3E%3Cpath d='M20 20H40V60H80V80H20Z' fill='%23C7A252'/%3E%3Cpath d='M80 80H60V40H20V20H80Z' fill='%23C7A252' fill-opacity='0.55'/%3E%3C/svg%3E">
 
-    <!-- Google Fonts: Playfair Display (Serif) & Inter (Sans-Serif) -->
+    <!-- Google Fonts: Space Grotesk + IBM Plex Mono (Option C base) plus Libre Caslon Display / Text italic (gold accents borrowed from Option B) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital@1&display=swap" rel="stylesheet">
 
     <style>
-        /* LELYLAAN VENTURES BRAND GUIDE v1.0 */
         :root {
-            --color-primary: #1B2A41;   /* Lelylaan Navy */
-            --color-accent: #C7A252;    /* Gold */
-            --color-neutral: #A8A8B8;   /* Granite Grey */
-            --color-background: #FFFFFF;
-            --color-surface: #F5F5F5;
-            --color-text: #333333;
-            --color-text-secondary: #666666;
-            --color-border: #EBEBEB;
+            --bg: #F4F4F1;
+            --ink: #14181F;
+            --line: #C9CAC4;
+            --line-soft: #DBDCD7;
+            --navy: #1B2A41;
+            --gold: #C7A252;
+            --gold-tint: #C9B98F;
+            --text-secondary: #5A5E66;
+            --text-body: #3A3E45;
+            --text-muted: #8A8D93;
+            --text-faint: #6E7178;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
+        html { -webkit-text-size-adjust: 100%; }
+
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--color-background);
-            color: var(--color-text);
+            font-family: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg);
+            color: var(--ink);
             line-height: 1.6;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            animation: fadeIn 0.6s ease-in;
+            overflow-x: hidden;
+            animation: fadeIn 0.7s ease-in;
         }
 
         @keyframes fadeIn {
@@ -48,331 +50,398 @@
             to { opacity: 1; }
         }
 
+        a { color: var(--navy); text-decoration: underline; }
+        a:hover { color: var(--gold); }
+
+        .mono {
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
+        .wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 clamp(1.25rem, 4.5vw, 4rem);
+        }
+
+        /* HEADER */
         header {
-            background-color: var(--color-primary);
-            padding: 1rem 2rem;
-            display: flex;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-bottom: 2px solid var(--ink);
         }
 
-        .brand-container {
+        .header-inner {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 12px;
-            color: #FFFFFF;
-            text-decoration: none;
-        }
-
-        .header-icon {
-            height: 32px;
-            width: 32px;
-            fill: var(--color-accent);
+            padding: 1.6rem 0;
+            gap: 1rem;
+            flex-wrap: wrap;
         }
 
         .brand-name {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            font-size: 1.25rem;
+            font-size: 1.05rem;
+            font-weight: 500;
             letter-spacing: 0.02em;
-            color: #FFFFFF;
         }
 
-        main {
-            flex: 1;
-            padding: 3rem 2rem;
-            max-width: 1100px;
-            width: 100%;
-            margin: 0 auto;
+        .header-badge {
+            font-size: 0.75rem;
+            letter-spacing: 0.04em;
+            color: var(--text-faint);
         }
 
+        /* HERO */
         .hero {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            padding-bottom: 1rem;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(280px, 42%);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .hero-copy {
+            padding: clamp(3rem, 9vw, 6.25rem) clamp(1.25rem, 4.5vw, 4rem) clamp(3.5rem, 7vw, 5.6rem) clamp(1.25rem, 4.5vw, 4rem);
+        }
+
+        .hero-eyebrow {
+            font-size: 0.75rem;
+            letter-spacing: 0.06em;
+            color: var(--gold);
+            margin-bottom: 1.75rem;
         }
 
         h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            font-weight: 600;
-            color: var(--color-primary);
-            margin-bottom: 1rem;
+            font-weight: 300;
+            font-size: clamp(1.9rem, 5.4vw, 4rem);
+            line-height: 1.12;
             letter-spacing: -0.01em;
-            line-height: 1.1;
+            max-width: 18ch;
         }
 
-        .gold-divider {
-            width: 60px;
-            height: 3px;
-            background-color: var(--color-accent);
-            margin: 0 auto 2rem auto;
+        h1 em {
+            font-family: 'Libre Caslon Text', Georgia, serif;
+            font-style: italic;
+            font-weight: 400;
+            color: var(--gold);
         }
 
-        p.lead {
-            font-size: 1.25rem;
-            color: var(--color-text-secondary);
-            font-weight: 300;
-            max-width: 650px;
+        .hero-panel {
+            position: relative;
+            border-left: 1px solid var(--line);
+            background: var(--navy);
+            overflow: hidden;
+        }
+
+        .hero-artwork {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        /* SECTION LABELS */
+        .eyebrow-label {
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            color: var(--gold);
+        }
+
+        /* WHAT WE DO */
+        .whatwedo {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            border-bottom: 1px solid var(--line);
+        }
+
+        .wwd-col {
+            padding: clamp(2.25rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2.5rem) clamp(2.75rem, 5vw, 3.5rem) clamp(1.5rem, 3vw, 2.5rem);
+            border-right: 1px solid var(--line);
+        }
+
+        .wwd-col:last-child { border-right: none; }
+
+        .wwd-num {
+            font-family: 'Libre Caslon Display', Georgia, serif;
+            font-size: 1.9rem;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 0.6rem;
+        }
+
+        .wwd-title {
+            font-size: 1rem;
+            font-weight: 500;
             margin-bottom: 1rem;
         }
 
-        section {
-            margin-top: 4rem;
+        .wwd-text {
+            font-size: 0.92rem;
+            line-height: 1.7;
+            color: var(--text-body);
         }
 
-        .section-heading {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
-            font-weight: 600;
-            color: var(--color-primary);
-            text-align: center;
-            margin-bottom: 0.75rem;
+        /* APPROACH */
+        .approach {
+            padding: clamp(2.75rem, 6vw, 4.5rem) 0;
+            border-bottom: 1px solid var(--line);
         }
 
-        .section-divider {
-            width: 40px;
-            height: 2px;
-            background-color: var(--color-accent);
-            margin: 0 auto 2.5rem auto;
+        .approach .eyebrow-label { margin-bottom: clamp(1.5rem, 3vw, 2.25rem); }
+
+        .approach-list {
+            display: flex;
+            flex-direction: column;
+            max-width: 900px;
         }
 
-        .section-intro {
-            text-align: center;
-            color: var(--color-text-secondary);
-            font-weight: 300;
-            max-width: 700px;
-            margin: 0 auto 2.5rem auto;
+        .approach-row {
+            display: flex;
+            gap: clamp(1rem, 3vw, 2.25rem);
+            padding: 1.35rem 0;
+            border-top: 1px solid var(--line);
+            align-items: baseline;
         }
 
-        .details-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 2rem;
-            width: 100%;
-            text-align: left;
+        .approach-list .approach-row:last-child {
+            border-bottom: 1px solid var(--line);
         }
 
-        .detail-card {
-            background-color: var(--color-surface);
-            padding: 2rem;
-            border-left: 3px solid var(--color-accent);
-            border-radius: 0 4px 4px 0;
+        .approach-title {
+            font-weight: 500;
+            font-size: 1.05rem;
+            flex: 0 0 auto;
+            width: 280px;
         }
 
-        .detail-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.1rem;
-            color: var(--color-primary);
-            margin-bottom: 0.75rem;
-            font-weight: 600;
+        .approach-text {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            flex: 1 1 auto;
+            min-width: 0;
         }
 
-        .detail-card p {
-            font-size: 0.95rem;
-            color: var(--color-text-secondary);
-            margin-bottom: 0.25rem;
+        /* REGISTERED ENTITY */
+        .entity-box {
+            margin: clamp(2.5rem, 6vw, 4rem) clamp(1.25rem, 4.5vw, 4rem);
+            border: 2px solid var(--ink);
+            background: #FFFFFF;
         }
 
-        .entity-card {
-            background-color: var(--color-surface);
-            padding: 2.5rem;
-            border-left: 3px solid var(--color-accent);
-            border-radius: 0 4px 4px 0;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .entity-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            color: var(--color-primary);
-            margin-bottom: 1.25rem;
-            font-weight: 600;
-        }
-
-        .entity-row {
+        .entity-bar {
+            padding: 1.15rem clamp(1.25rem, 3vw, 2.5rem);
+            border-bottom: 2px solid var(--ink);
             display: flex;
             justify-content: space-between;
-            gap: 1rem;
-            padding: 0.6rem 0;
-            border-top: 1px solid var(--color-border);
-            font-size: 0.95rem;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
         }
 
-        .entity-row:first-of-type {
-            border-top: none;
+        .entity-bar .mono {
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
         }
 
-        .entity-label {
-            font-weight: 500;
-            color: var(--color-primary);
-            flex-shrink: 0;
+        .entity-bar .mono.faint { color: var(--text-faint); }
+
+        .entity-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .entity-cell {
+            padding: 1.75rem clamp(1.25rem, 3vw, 2.5rem);
+            border-right: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .entity-cell:nth-child(2n) { border-right: none; }
+
+        .entity-cell:nth-last-child(-n+2) { border-bottom: none; }
+
+        .entity-key {
+            font-size: 0.68rem;
+            letter-spacing: 0.06em;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
         }
 
         .entity-value {
-            color: var(--color-text-secondary);
-            text-align: right;
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
 
+        /* FOOTER */
         footer {
-            background-color: #F8F9FA;
-            padding: 3rem 2rem;
-            text-align: center;
-            border-top: 1px solid var(--color-border);
+            padding: 0 clamp(1.25rem, 4.5vw, 4rem) clamp(3rem, 6vw, 3.75rem) clamp(1.25rem, 4.5vw, 4rem);
         }
 
-        .regulatory-box {
-            max-width: 700px;
-            margin: 0 auto;
+        .regulatory {
             font-size: 0.8rem;
-            color: var(--color-neutral);
-            border: 1px solid var(--color-border);
-            padding: 1.5rem;
-            background-color: #FFFFFF;
-            text-align: left;
+            line-height: 1.8;
+            color: var(--text-faint);
+            max-width: 60em;
         }
 
-        .regulatory-box strong {
-            color: var(--color-primary);
-            display: block;
-            margin-bottom: 0.5rem;
-            font-family: 'Playfair Display', serif;
-            text-align: center;
-        }
-
-        .regulatory-meta {
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid rgba(0,0,0,0.08);
-            font-size: 0.78rem;
-        }
-
-        .regulatory-meta div {
-            margin-bottom: 0.25rem;
-        }
-
-        .regulatory-label {
-            font-weight: 500;
-            color: var(--color-primary);
-        }
-
-        .copyright {
+        .footer-meta {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
             margin-top: 2rem;
+            padding-top: 1.25rem;
+            border-top: 2px solid var(--ink);
             font-size: 0.75rem;
-            color: var(--color-neutral);
+            color: var(--text-muted);
         }
 
+        /* RESPONSIVE */
         @media (max-width: 768px) {
-            h1 { font-size: 2.25rem; }
-            .brand-name { display: none; }
-            header { justify-content: center; }
-            main { padding: 3rem 1.5rem; }
-            section { margin-top: 3rem; }
-            .entity-row { flex-direction: column; gap: 0.15rem; }
-            .entity-value { text-align: left; }
+            .hero { grid-template-columns: 1fr; }
+
+            .hero-panel {
+                border-left: none;
+                border-top: 1px solid var(--line);
+                height: clamp(200px, 42vw, 260px);
+            }
+
+            .whatwedo { grid-template-columns: 1fr; }
+
+            .wwd-col {
+                border-right: none;
+                border-bottom: 1px solid var(--line);
+            }
+
+            .wwd-col:last-child { border-bottom: none; }
+
+            .approach-row { flex-direction: column; gap: 0.4rem; }
+
+            .approach-title { width: auto; }
+
+            .entity-grid { grid-template-columns: 1fr; }
+
+            .entity-cell:nth-child(2n) { border-right: none; }
+            .entity-cell { border-right: none; }
+            .entity-cell:nth-last-child(-n+2) { border-bottom: 1px solid var(--line); }
+            .entity-cell:last-child { border-bottom: none; }
+
+            .footer-meta { flex-direction: column; gap: 0.4rem; }
+        }
+
+        @media (max-width: 420px) {
+            .entity-box { margin-left: 1rem; margin-right: 1rem; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <a href="#" class="brand-container">
-            <svg class="header-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20 20H40V60H80V80H20Z" fill="currentColor"/>
-                <path d="M80 80H60V40H20V20H80Z" fill="#FFFFFF" fill-opacity="0.2"/>
-            </svg>
+        <div class="wrap header-inner">
             <span class="brand-name">Lelylaan Ventures</span>
-        </a>
+            <span class="header-badge mono">CRO 823960 / IE</span>
+        </div>
     </header>
 
     <main>
-        <div class="hero">
-            <h1>Lelylaan Ventures</h1>
-            <div class="gold-divider"></div>
-            <p class="lead">
-                A private holding company building and backing AI-native ventures.
-            </p>
-        </div>
+        <section class="hero">
+            <div class="hero-copy">
+                <div class="hero-eyebrow mono">[ PRIVATE HOLDING COMPANY ]</div>
+                <h1>A private holding company <em>building and backing</em> AI&#8209;native ventures.</h1>
+            </div>
+            <div class="hero-panel">
+                <svg class="hero-artwork" viewBox="0 0 600 800" preserveAspectRatio="xMidYMid slice" fill="none" aria-hidden="true">
+                    <!-- fine blueprint grid -->
+                    <path d="M60,0 V800 M150,0 V800 M240,0 V800 M330,0 V800 M420,0 V800 M510,0 V800" stroke="#C7A252" stroke-width="1" opacity="0.08"/>
+                    <path d="M0,80 H600 M0,200 H600 M0,320 H600 M0,440 H600 M0,560 H600 M0,680 H600" stroke="#C7A252" stroke-width="1" opacity="0.12"/>
+                    <!-- large section arc -->
+                    <path d="M-80,800 A480,480 0 0 1 600,120" stroke="#C7A252" stroke-width="1.5" opacity="0.25"/>
+                    <!-- diagonal section line with survey ticks -->
+                    <line x1="0" y1="800" x2="600" y2="0" stroke="#C7A252" stroke-width="1" opacity="0.2"/>
+                    <line x1="142" y1="594" x2="158" y2="606" stroke="#C7A252" stroke-width="1" opacity="0.35"/>
+                    <line x1="292" y1="394" x2="308" y2="406" stroke="#C7A252" stroke-width="1" opacity="0.35"/>
+                    <line x1="442" y1="194" x2="458" y2="206" stroke="#C7A252" stroke-width="1" opacity="0.35"/>
+                    <!-- layered interlocking-L strokes, varying scale and opacity -->
+                    <path d="M40,120 V620 H420" stroke="#C7A252" stroke-width="14" opacity="0.2"/>
+                    <path d="M560,60 V360 H260" stroke="#C7A252" stroke-width="10" opacity="0.35"/>
+                    <path d="M120,460 V680 H340" stroke="#C7A252" stroke-width="7" opacity="0.55"/>
+                    <path d="M360,180 V300 H480" stroke="#C7A252" stroke-width="4" opacity="0.5"/>
+                    <path d="M480,40 V180 H360" stroke="#C7A252" stroke-width="5" opacity="0.75"/>
+                    <path d="M430,560 V660 H530" stroke="#C7A252" stroke-width="4" opacity="1"/>
+                    <!-- corner registration marks -->
+                    <path d="M20,20 H36 M28,12 V28" stroke="#C7A252" stroke-width="1" opacity="0.3"/>
+                    <path d="M564,780 H580 M572,772 V788" stroke="#C7A252" stroke-width="1" opacity="0.3"/>
+                </svg>
+            </div>
+        </section>
 
-        <section>
-            <h2 class="section-heading">What We Do</h2>
-            <div class="section-divider"></div>
-            <div class="details-grid">
-                <div class="detail-card">
-                    <h3>Equity Ownership</h3>
-                    <p>Lelylaan holds equity stakes in a small group of separately incorporated AI-software and technology companies within the same ownership group.</p>
-                </div>
-                <div class="detail-card">
-                    <h3>Strategic Support</h3>
-                    <p>We provide strategic input across the group, helping each company think through direction, governance, and long-term planning.</p>
-                </div>
-                <div class="detail-card">
-                    <h3>Operational Support</h3>
-                    <p>We offer practical operational support, such as finance, administration, and shared services, to companies within the group.</p>
+        <section class="whatwedo">
+            <div class="wwd-col">
+                <span class="wwd-num">01</span>
+                <div class="wwd-title">Equity Ownership</div>
+                <p class="wwd-text">Lelylaan holds equity stakes in a small group of separately incorporated AI-software and technology companies within the same ownership group.</p>
+            </div>
+            <div class="wwd-col">
+                <span class="wwd-num">02</span>
+                <div class="wwd-title">Strategic Support</div>
+                <p class="wwd-text">We provide strategic input across the group, helping each company think through direction, governance, and long-term planning.</p>
+            </div>
+            <div class="wwd-col">
+                <span class="wwd-num">03</span>
+                <div class="wwd-title">Operational Support</div>
+                <p class="wwd-text">We offer practical operational support, such as finance, administration, and shared services, to companies within the group.</p>
+            </div>
+        </section>
+
+        <section class="approach">
+            <div class="wrap">
+                <div class="eyebrow-label mono">APPROACH</div>
+                <div class="approach-list">
+                    <div class="approach-row">
+                        <span class="approach-title">Independently Incorporated</span>
+                        <span class="approach-text">Each venture is its own separately incorporated company, operating under its own name and management.</span>
+                    </div>
+                    <div class="approach-row">
+                        <span class="approach-title">Shared Operational Discipline</span>
+                        <span class="approach-text">Companies within the group draw on common standards and practices for how they run their operations.</span>
+                    </div>
+                    <div class="approach-row">
+                        <span class="approach-title">Long-Term Ownership</span>
+                        <span class="approach-text">Lelylaan takes a patient, long-term view of the companies it holds equity in, rather than seeking short-term returns.</span>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section>
-            <h2 class="section-heading">Approach</h2>
-            <div class="section-divider"></div>
-            <div class="details-grid">
-                <div class="detail-card">
-                    <h3>Independently Incorporated</h3>
-                    <p>Each venture is its own separately incorporated company, operating under its own name and management.</p>
-                </div>
-                <div class="detail-card">
-                    <h3>Shared Operational Discipline</h3>
-                    <p>Companies within the group draw on common standards and practices for how they run their operations.</p>
-                </div>
-                <div class="detail-card">
-                    <h3>Long-Term Ownership</h3>
-                    <p>Lelylaan takes a patient, long-term view of the companies it holds equity in, rather than seeking short-term returns.</p>
-                </div>
+        <section class="entity-box">
+            <div class="entity-bar">
+                <span class="mono">REGISTERED ENTITY</span>
+                <span class="mono faint">COMPANIES ACT 2014</span>
             </div>
-        </section>
-
-        <section>
-            <h2 class="section-heading">Registered Entity</h2>
-            <div class="section-divider"></div>
-            <div class="entity-card">
-                <h3>Lelylaan Ventures Limited</h3>
-                <div class="entity-row">
-                    <span class="entity-label">Entity Type</span>
-                    <span class="entity-value">Private Company Limited by Shares, incorporated in Ireland under the Companies Act 2014</span>
+            <div class="entity-grid">
+                <div class="entity-cell">
+                    <div class="entity-key mono">ENTITY</div>
+                    <div class="entity-value">Lelylaan Ventures Limited &mdash; Private Company Limited by Shares, incorporated in Ireland under the Companies Act 2014</div>
                 </div>
-                <div class="entity-row">
-                    <span class="entity-label">Company Registration No.</span>
-                    <span class="entity-value">823960</span>
+                <div class="entity-cell">
+                    <div class="entity-key mono">COMPANY REGISTRATION NO.</div>
+                    <div class="entity-value">823960</div>
                 </div>
-                <div class="entity-row">
-                    <span class="entity-label">Registered Office</span>
-                    <span class="entity-value">5 Clarinda Park North, Dun Laoghaire, Co. Dublin, Ireland</span>
+                <div class="entity-cell">
+                    <div class="entity-key mono">REGISTERED OFFICE</div>
+                    <div class="entity-value">5 Clarinda Park North, Dun Laoghaire, Co. Dublin, Ireland</div>
                 </div>
-                <div class="entity-row">
-                    <span class="entity-label">Enquiries</span>
-                    <span class="entity-value">hello@lelylaan.com</span>
+                <div class="entity-cell">
+                    <div class="entity-key mono">ENQUIRIES</div>
+                    <div class="entity-value">hello@lelylaan.com</div>
                 </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <div class="regulatory-box">
-            <strong>REGULATORY NOTICE</strong>
-            Lelylaan Ventures Limited is a private holding and venture-management company that holds equity in and supports AI-software ventures within the group. It does not manage third-party funds, does not provide investment advice, and does not offer financial services to the public. This website is for corporate information purposes only.
-            <div class="regulatory-meta">
-                <div><span class="regulatory-label">Company No.:</span> 823960</div>
-                <div><span class="regulatory-label">Registered Office:</span> 5 Clarinda Park North, Dun Laoghaire, Co. Dublin, Ireland</div>
-                <div><span class="regulatory-label">Enquiries:</span> hello@lelylaan.com</div>
-                <div>Incorporated under the Companies Act 2014.</div>
-            </div>
-        </div>
-        <div class="copyright">
-            &copy; 2026 Lelylaan Ventures Limited. All Rights Reserved.
+        <p class="regulatory">Lelylaan Ventures Limited is a private holding and venture-management company that holds equity in and supports AI-software ventures within the group. It does not manage third-party funds, does not provide investment advice, and does not offer financial services to the public. This website is for corporate information purposes only.</p>
+        <div class="footer-meta">
+            <span>&copy; 2026 Lelylaan Ventures Limited. All Rights Reserved.</span>
+            <span class="mono">53.2941&#176; N, 6.1362&#176; W</span>
         </div>
     </footer>
 
