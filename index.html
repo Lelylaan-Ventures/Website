@@ -111,6 +111,22 @@
             flex-wrap: wrap;
         }
 
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--ink);
+        }
+
+        .brand:hover { color: var(--ink); }
+
+        .brand-mark {
+            width: 30px;
+            height: 30px;
+            display: block;
+        }
+
         .brand-name {
             font-size: 1.05rem;
             font-weight: 500;
@@ -377,7 +393,17 @@
 
     <header>
         <div class="wrap header-inner">
-            <span class="brand-name">Lelylaan Ventures</span>
+            <a class="brand" href="#overview" aria-label="Lelylaan Ventures — top">
+                <svg class="brand-mark" viewBox="0 0 512 512" aria-hidden="true">
+                    <rect width="512" height="512" rx="72" fill="#1B2A41"/>
+                    <g stroke="#C7A252" stroke-width="32" fill="none">
+                        <path d="M156 116 V384 H386"/>
+                        <path d="M216 116 V324 H386"/>
+                        <path d="M276 116 V264 H386"/>
+                    </g>
+                </svg>
+                <span class="brand-name">Lelylaan Ventures</span>
+            </a>
             <div class="header-right">
                 <nav class="header-nav" aria-label="Sections">
                     <a href="#overview">Overview</a>
